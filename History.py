@@ -146,3 +146,70 @@ print(myc.test)
 #--
 
 
+monks = {"A": 157, "B":163, "C":157, "D":145}
+
+for i, monk in enumerate(monks.items()):
+    print(i, monk)
+
+
+#---
+
+
+def NaihouDict():
+
+    monks = {"A": 157, "B":163, "C":157, "D":145}
+
+    return {monk:num for monk, num in monks.items() }
+
+test = NaihouDict()
+
+print(test)
+
+#--
+
+
+monks = iter({"A": 157, "B":163, "C":157, "D":145})
+
+print(next(monks))
+
+for monk in monks:
+    print(monk)
+
+
+#--
+
+def method1(func):
+    def methodIn(*args):
+        print("引数:", args)
+        return func(*args)
+    return methodIn
+
+def delMethod(a, b):
+    return a + b
+
+newFunc = method1(delMethod)
+
+result = newFunc(10, 20)
+
+print(result)
+
+
+#--
+
+def method1(func):
+    def methodIn(*args):
+        print("引数:", args)
+        return func(*args)
+    return methodIn
+
+@method1
+def delMethod(a, b):
+    return a + b
+
+# newFunc = method1(delMethod)
+
+result = delMethod(10, 20)
+print(result)
+
+#--
+
